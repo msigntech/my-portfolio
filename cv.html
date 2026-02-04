@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gassali Mohamed Simar | Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* --- CSS VARIABLES (The "Picto" Vibe) --- */
+        :root {
+            --primary-gradient: linear-gradient(90deg, #9D00FF 0%, #FF0099 100%);
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --bg-light: #f8f9fc;
+            --white: #ffffff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #9D00FF;
+        }
+
+        /* NAV CONTACT BUTTON */
+        .btn-contact {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(157, 0, 255, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem 10%;
+            background: var(--white);
+            min-height: 80vh;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 3rem;
+        }
+
+        .hero-text h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero-text .highlight-name {
+            color: #2c2c2c;
+        }
+
+        .hero-text p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* HERO MAIN BUTTON */
+        .btn-hero {
+            display: inline-block;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 10px 20px rgba(157, 0, 255, 0.2);
+            transition: transform 0.2s;
+        }
+        
+        .btn-hero:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-social-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: white;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border: 2px solid #eee;
+        }
+
+        .btn-social-circle:hover {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(157, 0, 255, 0.3);
+        }
+
+        .hero-img-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 450px;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background-color: #e0e0e0;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 4rem;
+        }
+        .stat-item h2 { font-size: 2rem; color: var(--text-dark); }
+        .stat-item p { color: var(--text-gray); font-size: 0.9rem; font-weight: 600;}
+
+        /* --- EXPERIENCE SECTION --- */
+        .experience-section {
+            background: white;
+            padding: 5rem 10%;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item {
+            border-left: 3px solid #eee;
+            padding-left: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 17px;
+            height: 17px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+        }
+
+        .company-name { color: #9D00FF; font-weight: bold; margin-bottom: 5px; display: block; }
+        .tech-stack { font-size: 0.9rem; color: #888; margin-top: 10px; font-style: italic; }
+
+        /* --- PROJECTS SECTION --- */
+        .projects-section {
+            padding: 5rem 10%;
+            background-color: var(--bg-light);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #9D00FF;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .project-card h3 { margin-bottom: 10px; }
+        .project-card p { color: var(--text-gray); margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+        .btn-outline {
+            text-decoration: none;
+            color: var(--text-dark);
+            border: 2px solid #eee;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-outline:hover { border-color: #9D00FF; color: #9D00FF; }
+
+        /* --- SKILLS SECTION --- */
+        .skills-section {
+            padding: 5rem 10%;
+            background: white;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-pill {
+            background: var(--bg-light);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            border: 1px solid #eee;
+            transition: 0.2s;
+        }
+
+        .skill-pill:hover {
+            background: var(--white);
+            border-color: #9D00FF;
+            color: #9D00FF;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .social-links { margin-top: 1.5rem; }
+        .social-links a { color: white; font-size: 1.5rem; margin: 0 10px; transition: 0.3s; }
+        .social-links a:hover { color: #FF0099; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 2rem; }
+            .hero-text { padding-right: 0; }
+            .hero-img { margin-bottom: 2rem; height: 350px; }
+            .nav-links { display: none; }
+            .stats-bar { justify-content: center; }
+            .hero-buttons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <i class="fas fa-code"></i> <span>G.M. Simar</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+        <a href="mailto:gassalimohamedsimar@gmail.com" class="btn-contact">Contact Me</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h3>Hello, I'm</h3>
+            <h1 class="highlight-name">Gassali Mohamed<br>Simar</h1>
+            
+            <p>
+                I am a <b>Freelance Full-Stack Developer</b> creating professional websites for businesses.
+                <br><br>
+                Also a Software Engineer based in Sri Lanka, currently engineering scalable healthcare solutions with <b>.NET & C#</b> at Cambio.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="mailto:gassalimohamedsimar@gmail.com" class="btn-hero">Hire Me / Say Hello!</a>
+                
+                <a href="https://github.com/msigntech" target="_blank" class="btn-social-circle" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/gassali-mohamed-simar-338644380/" target="_blank" class="btn-social-circle" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <h2>B.Sc.</h2>
+                    <p>IT Graduate</p>
+                </div>
+                <div class="stat-item">
+                    <h2>6+</h2>
+                    <p>Months Remote Exp</p>
+                </div>
+                <div class="stat-item">
+                    <h2>100%</h2>
+                    <p>Dedication</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-img-container">
+            <img src="https://i.postimg.cc/bNVVYC0b/Gemini-Generated-Image-c3cblbwc3cblbc3cb.png" alt="Gassali Mohamed Simar" class="hero-img">
+        </div>
+    </section>
+
+    <section class="experience-section" id="experience">
+        <h2 class="section-title">My Journey</h2>
+
+        <div class="timeline-item">
+            <span class="company-name">Cambio Sri Lanka | June 2025 - Present</span>
+            <h3>Junior Software Engineer</h3>
+            <p>Developing enterprise-grade healthcare applications using the .NET framework. Focusing on backend optimization, C# coding, and system reliability within an Agile environment.</p>
+            <p class="tech-stack">Tech: .NET Framework, C#, SQL, Agile</p>
+        </div>
+
+        <div class="timeline-item">
+            <span class="company-name">ASX Australia (Remote) | Dec 2024 - May 2025</span>
+            <h3>Intern Software Engineer</h3>
+            <p>Gained extensive experience in remote international collaboration. Applied core software engineering principles to financial/data systems and contributed to cross-functional team deliverables.</p>
+            <p class="tech-stack">Tech: Full-Stack Principles, Remote Collaboration</p>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="card-content">
+                    <span class="tag">Backend & Logic</span>
+                    <h3>MSiGN Shop POS</h3>
+                    <p>A comprehensive Point of Sale web app for a grocery business. Features full CRUD operations, inventory tracking, and LKR currency integration.</p>
+                    <a href="https://github.com/msigntech/msign-shop-pos.git" target="_blank" class="btn-outline">View GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-content">
+                    <span class="tag">Frontend & Client</span>
+                    <h3>Tea Break Website</h3>
+                    <p>A 5-page responsive website for a restaurant in Anuradhapura. Focused on local SEO, menu visualization, and brand identity.</p>
+                    <a href="https://msigntech.github.io/Tea-break-website/" target="_blank" class="btn-outline">Visit Site</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-content">
+                    <span class="tag">AI & Design</span>
+                    <h3>MSiGN VFX Portfolio</h3>
+                    <p>An innovative portfolio built using AI-augmented development workflows ("Vibe Coding"). Showcases graphic design and visual effects expertise.</p>
+                    <a href="https://msignvfx.netlify.app/" target="_blank" class="btn-outline">Visit Site</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <ul class="skill-list">
+                    <li class="skill-pill">C#</li>
+                    <li class="skill-pill">Java</li>
+                    <li class="skill-pill">Python</li>
+                    <li class="skill-pill">PHP</li>
+                    <li class="skill-pill">SQL</li>
+                    <li class="skill-pill">JavaScript</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frameworks</h3>
+                <ul class="skill-list">
+                    <li class="skill-pill">.NET Framework</li>
+                    <li class="skill-pill">Laravel</li>
+                    <li class="skill-pill">Spring Boot</li>
+                    <li class="skill-pill">React (Learning)</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Cloud</h3>
+                <ul class="skill-list">
+                    <li class="skill-pill">Git / GitHub</li>
+                    <li class="skill-pill">Docker</li>
+                    <li class="skill-pill">Azure DevOps</li>
+                    <li class="skill-pill">MySQL</li>
+                    <li class="skill-pill">PowerShell</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <h2>Let's Work Together</h2>
+        <p>Colombo, Sri Lanka | gassalimohamedsimar@gmail.com</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/gassali-mohamed-simar-338644380/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/msigntech" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:gassalimohamedsimar@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="margin-top:20px; font-size:0.8rem; opacity:0.5;">&copy; 2026 MSiGN Tech. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
