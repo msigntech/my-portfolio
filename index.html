@@ -6,14 +6,33 @@
     <title>Gassali Mohamed Simar | Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* --- CSS VARIABLES (The "Picto" Vibe) --- */
+        /* --- CSS VARIABLES (Light Mode Default) --- */
         :root {
             --primary-gradient: linear-gradient(90deg, #9D00FF 0%, #FF0099 100%);
             --text-dark: #1a1a1a;
-            --text-gray: #666;
+            --text-gray: #666666;
             --bg-light: #f8f9fc;
             --white: #ffffff;
+            --card-bg: #ffffff;
+            --border-color: #eeeeee;
+            --shadow: rgba(0,0,0,0.05);
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* --- AUTOMATIC DARK MODE OVERRIDES --- */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #f0f0f0;       /* Light text for dark mode */
+                --text-gray: #aaaaaa;       /* Lighter gray for descriptions */
+                --bg-light: #121212;        /* Very dark background */
+                --white: #1e1e1e;           /* Dark gray for sections */
+                --card-bg: #252525;         /* Slightly lighter for cards */
+                --border-color: #333333;    /* Dark borders */
+                --shadow: rgba(0,0,0,0.3);  /* Stronger shadow */
+            }
+            .hero-img {
+                filter: brightness(0.9);    /* Slightly dim photo in dark mode */
+            }
         }
 
         html {
@@ -31,6 +50,7 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* --- NAVIGATION --- */
@@ -38,12 +58,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 5%;
+            padding: 1.5rem 5%;
             background: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: background-color 0.3s;
         }
 
         .logo {
@@ -52,6 +73,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            color: var(--text-dark);
         }
 
         .logo span {
@@ -77,7 +99,6 @@
             color: #9D00FF;
         }
 
-        /* NAV CONTACT BUTTON */
         .btn-contact {
             background: var(--primary-gradient);
             color: white;
@@ -101,6 +122,7 @@
             padding: 4rem 10%;
             background: var(--white);
             min-height: 80vh;
+            transition: background-color 0.3s;
         }
 
         .hero-text {
@@ -122,7 +144,9 @@
         }
 
         .hero-text .highlight-name {
-            color: #2c2c2c;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-text p {
@@ -137,9 +161,9 @@
             align-items: center;
             gap: 1rem;
             margin-bottom: 3rem;
+            flex-wrap: wrap; /* Allows buttons to wrap on tiny screens */
         }
 
-        /* HERO MAIN BUTTON */
         .btn-hero {
             display: inline-block;
             background: var(--primary-gradient);
@@ -164,13 +188,13 @@
             width: 55px;
             height: 55px;
             border-radius: 50%;
-            background: white;
+            background: var(--card-bg);
             color: var(--text-dark);
             font-size: 1.5rem;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px var(--shadow);
             transition: 0.3s;
-            border: 2px solid #eee;
+            border: 2px solid var(--border-color);
         }
 
         .btn-social-circle:hover {
@@ -194,8 +218,8 @@
             height: 550px;
             object-fit: cover;
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            background-color: #e0e0e0;
+            box-shadow: 0 20px 40px var(--shadow);
+            background-color: var(--border-color);
         }
 
         .stats-bar {
@@ -207,18 +231,20 @@
 
         /* --- EXPERIENCE SECTION --- */
         .experience-section {
-            background: white;
+            background: var(--white);
             padding: 5rem 10%;
+            transition: background-color 0.3s;
         }
         
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
+            color: var(--text-dark);
         }
 
         .timeline-item {
-            border-left: 3px solid #eee;
+            border-left: 3px solid var(--border-color);
             padding-left: 2rem;
             margin-bottom: 3rem;
             position: relative;
@@ -236,12 +262,13 @@
         }
 
         .company-name { color: #9D00FF; font-weight: bold; margin-bottom: 5px; display: block; }
-        .tech-stack { font-size: 0.9rem; color: #888; margin-top: 10px; font-style: italic; }
+        .tech-stack { font-size: 0.9rem; color: var(--text-gray); margin-top: 10px; font-style: italic; }
 
         /* --- PROJECTS SECTION --- */
         .projects-section {
             padding: 5rem 10%;
             background-color: var(--bg-light);
+            transition: background-color 0.3s;
         }
 
         .project-grid {
@@ -251,11 +278,12 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px var(--shadow);
             transition: 0.3s;
+            border: 1px solid var(--border-color);
         }
 
         .project-card:hover {
@@ -267,7 +295,7 @@
         }
 
         .tag {
-            background: #f0f0f0;
+            background: var(--bg-light);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -275,15 +303,16 @@
             color: #9D00FF;
             margin-bottom: 10px;
             display: inline-block;
+            border: 1px solid var(--border-color);
         }
 
-        .project-card h3 { margin-bottom: 10px; }
+        .project-card h3 { margin-bottom: 10px; color: var(--text-dark); }
         .project-card p { color: var(--text-gray); margin-bottom: 1.5rem; font-size: 0.95rem; }
 
         .btn-outline {
             text-decoration: none;
             color: var(--text-dark);
-            border: 2px solid #eee;
+            border: 2px solid var(--border-color);
             padding: 8px 20px;
             border-radius: 8px;
             font-weight: 600;
@@ -294,7 +323,8 @@
         /* --- SKILLS SECTION --- */
         .skills-section {
             padding: 5rem 10%;
-            background: white;
+            background: var(--white);
+            transition: background-color 0.3s;
         }
 
         .skills-container {
@@ -307,7 +337,7 @@
             font-size: 1.2rem;
             margin-bottom: 1rem;
             color: var(--text-dark);
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
             display: inline-block;
         }
@@ -326,7 +356,7 @@
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--text-dark);
-            border: 1px solid #eee;
+            border: 1px solid var(--border-color);
             transition: 0.2s;
         }
 
@@ -335,14 +365,14 @@
             border-color: #9D00FF;
             color: #9D00FF;
             transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 10px var(--shadow);
         }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 3rem;
-            background: #1a1a1a;
+            background: #111111; /* Always dark for footer */
             color: white;
         }
         
@@ -350,14 +380,53 @@
         .social-links a { color: white; font-size: 1.5rem; margin: 0 10px; transition: 0.3s; }
         .social-links a:hover { color: #FF0099; }
 
-        /* Responsive */
+        /* --- RESPONSIVE / MOBILE CSS FIXES --- */
         @media (max-width: 768px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 2rem; }
-            .hero-text { padding-right: 0; }
-            .hero-img { margin-bottom: 2rem; height: 350px; }
-            .nav-links { display: none; }
-            .stats-bar { justify-content: center; }
-            .hero-buttons { justify-content: center; }
+            /* Fix Navigation: Stack items vertically */
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: flex; /* Force display flex */
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            /* Fix Hero Section */
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 2rem;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+            }
+            
+            .hero-img {
+                margin-bottom: 2rem;
+                height: 350px;
+                max-width: 100%;
+            }
+            
+            .stats-bar {
+                justify-content: center;
+                gap: 2rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem; /* Smaller font on mobile */
+            }
         }
     </style>
 </head>
@@ -514,7 +583,7 @@
 
     <footer>
         <h2>Let's Work Together</h2>
-        <p>Colombo, Sri Lanka | gassalimohamedsimar@gmail.com</p>
+        <p>Kalawewa, Sri Lanka | gassalimohamedsimar@gmail.com</p>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/gassali-mohamed-simar-338644380/" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/msigntech" target="_blank"><i class="fab fa-github"></i></a>
