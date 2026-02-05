@@ -24,8 +24,8 @@
             :root {
                 --text-dark: #f0f0f0;
                 --text-gray: #aaaaaa;
-                --bg-body: #0f0f0f;   /* Deep Dark Background */
-                --bg-card: #1a1a1a;   /* Slightly lighter cards */
+                --bg-body: #0f0f0f;
+                --bg-card: #1a1a1a;
                 --bg-pill: #2c2c2c;
                 --border-color: #333333;
                 --shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -99,7 +99,7 @@
         }
         .btn-contact:hover { transform: translateY(-2px); }
 
-        /* HAMBURGER ICON (Hidden on Desktop) */
+        /* HAMBURGER ICON */
         .hamburger {
             display: none;
             font-size: 1.8rem;
@@ -121,7 +121,7 @@
         .hero-text { flex: 1; padding-right: 3rem; }
         .hero-text h3 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 0.5rem; }
         .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--text-dark); }
-        .hero-text .highlight-name { color: var(--text-dark); } /* Updates in dark mode */
+        .hero-text .highlight-name { color: var(--text-dark); }
         .hero-text p { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; }
 
         .hero-buttons { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
@@ -273,7 +273,7 @@
             
             .nav-links {
                 position: absolute;
-                top: 70px; /* Below the nav bar */
+                top: 70px;
                 left: 0;
                 width: 100%;
                 background: var(--bg-card);
@@ -282,16 +282,16 @@
                 gap: 1.5rem;
                 padding: 2rem 0;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                display: none; /* Hidden by default on mobile */
+                display: none;
             }
 
             .nav-links.active {
-                display: flex; /* Shown when 'active' class is added via JS */
+                display: flex;
             }
 
             .stats-bar { justify-content: center; }
             .hero-buttons { justify-content: center; }
-            .btn-contact { display: none; } /* Hide big contact button in nav on mobile to save space */
+            .btn-contact { display: none; }
         }
     </style>
 </head>
@@ -394,6 +394,15 @@
 
             <div class="project-card">
                 <div class="card-content">
+                    <span class="tag">MERN Stack</span>
+                    <h3>Taaza Restaurant</h3>
+                    <p>A Full-Stack restaurant application. Built with MongoDB, Express, React, and Node.js. Features dynamic menu management and modern UI.</p>
+                    <a href="https://github.com/msigntech/website-for-Taaza" target="_blank" class="btn-outline">View GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="card-content">
                     <span class="tag">Frontend & Client</span>
                     <h3>Tea Break Website</h3>
                     <p>A 5-page responsive website for a restaurant in Anuradhapura. Focused on local SEO, menu visualization, and brand identity.</p>
@@ -422,26 +431,29 @@
                 <ul class="skill-list">
                     <li class="skill-pill">C#</li>
                     <li class="skill-pill">Java</li>
+                    <li class="skill-pill">JavaScript (ES6+)</li>
                     <li class="skill-pill">Python</li>
                     <li class="skill-pill">PHP</li>
                     <li class="skill-pill">SQL</li>
-                    <li class="skill-pill">JavaScript</li>
                 </ul>
             </div>
 
             <div class="skill-category">
-                <h3>Frameworks</h3>
+                <h3>Frameworks & MERN</h3>
                 <ul class="skill-list">
+                    <li class="skill-pill">React.js</li>
+                    <li class="skill-pill">Node.js</li>
+                    <li class="skill-pill">Express.js</li>
                     <li class="skill-pill">.NET Framework</li>
                     <li class="skill-pill">Laravel</li>
                     <li class="skill-pill">Spring Boot</li>
-                    <li class="skill-pill">React (Learning)</li>
                 </ul>
             </div>
 
             <div class="skill-category">
                 <h3>Tools & Cloud</h3>
                 <ul class="skill-list">
+                    <li class="skill-pill">MongoDB</li>
                     <li class="skill-pill">Git / GitHub</li>
                     <li class="skill-pill">Docker</li>
                     <li class="skill-pill">Azure DevOps</li>
@@ -473,4 +485,3 @@
 
 </body>
 </html>
-
